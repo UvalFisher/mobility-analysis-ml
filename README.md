@@ -62,16 +62,31 @@ For trip-duration prediction, the best ANN configuration used:
 
 The hyperparameter experiments showed that small-to-moderate networks and learning rates around 0.005–0.01 generally provided the most stable results when sufficient training epochs were used.
 
-## Visual analysis
+## Visualizations
 
-The original project report includes visual analysis of:
+### Trip characteristics
 
-- trip distance, duration, and speed distributions
-- hourly trip volume
-- spatial K-Means clusters of origins and destinations
-- hourly profiles by cluster
-- cluster-level distance and speed relationships
-- ANN train/test loss and hyperparameter performance
+Most detected trips are concentrated at shorter distances and durations, with right-skewed distributions for distance, duration, and average speed.
+
+![Trip distance, duration, and speed distributions](assets/distribution_distance_duration_speed.png)
+
+### Hourly mobility pattern
+
+Trip activity rises from the morning and reaches its strongest peak in the late afternoon, around 16:00–18:00.
+
+![Detected trips per hour](assets/trips_per_hour.png)
+
+### Spatial mobility clusters
+
+K-Means clustering of trip origins and destinations identified four spatial mobility regions with distinct geographic patterns.
+
+![Spatial distribution of K-Means mobility clusters](assets/clusters.png)
+
+### ANN training performance
+
+The best-performing ANN configuration used a learning rate of **0.005**, hidden-layer size of **16**, and **200 epochs**, with a final test loss of **0.582** and MAE of approximately **4.1 minutes**.
+
+![Training and test loss for the best ANN model](assets/loss_best_model.png)
 
 ## Technologies
 
