@@ -44,6 +44,35 @@ Uses PyTorch to predict trip duration from:
 
 Categorical features are one-hot encoded and the target is standardized. Multiple learning rates, hidden-layer sizes, and training durations are evaluated, with MAE and RMSE used to compare model performance.
 
+## Results
+
+The extracted trips showed clear temporal and spatial structure. Trip activity increased from the morning and reached its strongest peak during the late afternoon (approximately 16:00–18:00). Distance, duration, and speed distributions were right-skewed, with most detected trips concentrated at shorter distances and durations.
+
+K-Means clustering separated trip endpoints into **four spatial mobility regions**, revealing different urban, peripheral, and long-distance travel patterns.
+
+For trip-duration prediction, the best ANN configuration used:
+
+| Parameter | Best configuration |
+| --- | ---: |
+| Learning rate | 0.005 |
+| Hidden-layer size | 16 |
+| Training epochs | 200 |
+| Final test loss | 0.582 |
+| MAE | ~4.1 min |
+
+The hyperparameter experiments showed that small-to-moderate networks and learning rates around 0.005–0.01 generally provided the most stable results when sufficient training epochs were used.
+
+## Visual analysis
+
+The original project report includes visual analysis of:
+
+- trip distance, duration, and speed distributions
+- hourly trip volume
+- spatial K-Means clusters of origins and destinations
+- hourly profiles by cluster
+- cluster-level distance and speed relationships
+- ANN train/test loss and hyperparameter performance
+
 ## Technologies
 
 Python · pandas · NumPy · scikit-learn · PyTorch · Matplotlib · Folium · Shapely
@@ -65,7 +94,7 @@ mobility-analysis-ml/
 
 ## Data
 
-The original course dataset is **not included** in this public repository. The code expects sequential location observations containing a device/sensor identifier, timestamp, and coordinates. Intermediate CSV files are generated between stages of the workflow.
+The original dataset was provided for the course and is **not redistributed** in this public repository. The code expects sequential location observations containing a device/sensor identifier, timestamp, and coordinates. Intermediate CSV files are generated between stages of the workflow.
 
 ## Notes
 
