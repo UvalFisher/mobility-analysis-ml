@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.DS_Store
+
+# Original and derived datasets
+data/
+*.csv
+
+# Generated outputs and model artifacts
+*.pth
+*.pt
+*.html
+*.png
